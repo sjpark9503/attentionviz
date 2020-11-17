@@ -20,8 +20,8 @@ def head_view(attention, token_a, token_b=None, prettify_tokens=True):
         <span style="user-select:none">
             Layer: <select id="layer"></select>
             Attention: <select id="filter">
-              <option value="self">self</option>
               <option value="cross">cross</option>
+              <option value="self">self</option>
             </select>
             </span>
         <div id='vis'></div>
@@ -56,12 +56,12 @@ def head_view(attention, token_a, token_b=None, prettify_tokens=True):
     if token_b is not None:
         attn_data['cross'] = {
             'attn': attn['cross'].tolist(),
-            'left_text': token_a,
-            'right_text': token_b,
+            'left_text': token_b,
+            'right_text': token_a,
         }
     params = {
         'attention': attn_data,
-        'default_filter': "self"
+        'default_filter': "cross"
     }
 
     display(Javascript('window.params = %s' % json.dumps(params)))

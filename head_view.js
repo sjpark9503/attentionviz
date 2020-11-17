@@ -339,7 +339,7 @@ function initialize() {
   config.nHeads = config.attention[config.filter]['attn'][0].length;
   config.headVis  = new Array(config.nHeads).fill(true);
   config.layer = 0;
-  config.initialTextLength = config.attention[config.filter].right_text.length;
+  config.initialTextLength = Math.max(config.attention[config.filter].right_text.length,config.attention[config.filter].left_text.length);
   console.log('initial text length')
   console.log(config.initialTextLength)
 }
