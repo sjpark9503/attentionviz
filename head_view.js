@@ -12,7 +12,7 @@
 requirejs(['jquery', 'd3'], function($, d3) {
 
 const TEXT_SIZE = 15;
-const BOXWIDTH = 110;
+const BOXWIDTH = 130;
 const BOXHEIGHT = 22.5;
 const MATRIX_WIDTH = 115;
 const CHECKBOX_SIZE = 20;
@@ -345,8 +345,8 @@ function initialize() {
 }
 
 $("#layer").empty();
-for(var i=0; i<config.nLayers; i++) {
-  $("#layer").append($("<option />").val(i).text(i));
+for(var i=1; i<config.nLayers+1; i++) {
+  $("#layer").append($("<option />").val(i-1).text(i));
 }
 
 $("#layer").on('change', function(e) {

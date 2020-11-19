@@ -56,8 +56,8 @@ def head_view(attention, token_a, token_b=None, prettify_tokens=True):
     if token_b is not None:
         attn_data['cross'] = {
             'attn': attn['cross'].tolist(),
-            'left_text': token_b,
-            'right_text': token_a,
+            'left_text': token_a,
+            'right_text': token_b,
         }
     params = {
         'attention': attn_data,
